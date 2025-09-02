@@ -1,3 +1,4 @@
+import System.Win32 (xBUTTON1)
 f :: Double -> Double
 f x = 2*x + 1
 
@@ -58,3 +59,28 @@ sumOddSquaresRange' x y
     | y < x = 0
     | even y = sumOddSquaresRange' x (y-1)
     | otherwise = y^2 + sumOddSquaresRange' x (y-1)
+
+collatz :: Integer -> Integer
+collatz x
+    | x == 0 || x == 1 = 1
+    | even x = collatz(div x 2)
+    | odd x = collatz(3 * x + 1)
+
+myNum :: Integer
+myNum = 100
+myList :: [Integer]
+myList = [1..100]
+collatzCheck :: [Integer]
+collatzCheck = [collatz x | x <- myList]
+
+getSecond :: [String] -> String
+getSecond x = x !! 1
+
+makePalindrome :: String -> String
+makePalindrome x = x ++ reverse x
+
+skip3 :: String -> String
+skip3 = drop 3
+
+find7 :: [Integer] -> Bool
+find7 x = 7 `elem` x

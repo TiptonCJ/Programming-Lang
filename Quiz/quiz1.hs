@@ -1,7 +1,8 @@
 sumCubes :: Integer -> Integer
-sumCubes x = sum [x^3 | x <- [1..x]]
+sumCubes x = sum [y^3 | y <- [1..x]]
 
 equalEnds :: String -> Bool
+equalEnds "" = False
 equalEnds x = head x == last x
 
 equalLength :: String -> Int -> Bool

@@ -43,4 +43,6 @@ classify [] = ([],[])
 classify (Left x:xs) = let (ls, rs) = classify xs in (x:ls, rs)
 classify (Right x:xs) = let (ls, rs) = classify xs in (ls, x:rs)
 
+isPrefix :: (Eq a) => [a] -> [a] -> Bool
+isPrefix xs ys = xs == take (length xs) ys
 

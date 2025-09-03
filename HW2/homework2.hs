@@ -47,6 +47,20 @@ replacePrefix (x,y) [] = []
 replacePrefix (x,y) zs = y ++ drop (length x) zs
 
 replaceString :: (String,String) -> String -> String
+replaceString (xs,ys) "" = ""
+replaceString (xs,ys) (z:zs)
+    | isPrefix xs (z:zs) = replacePrefix (xs,ys) zs
+    | otherwise = z : replaceString (xs,ys) zs
+
+--cypher
+
+lookUp :: Char -> [(Char, Char)] -> Maybe Char
+lookup "" [] = Nothing
+lookUp x  ((ly,ry):rest)
+    | x == ly = Just ry
+    | otherwise = lookUp x rest
+
+
 
 
 

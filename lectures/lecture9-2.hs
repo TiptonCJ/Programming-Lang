@@ -44,3 +44,5 @@ merge :: (Ord a) => [a] -> [a]
 merge [] = []
 merge [x] = [x]
 merge xs = mergeSort (merge x1) (merge x2) where (x1,x2) = split xs
+
+
